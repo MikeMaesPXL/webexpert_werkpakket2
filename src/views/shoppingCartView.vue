@@ -18,8 +18,11 @@ export default {
 </script>
 <template>
     <body>
+        <h1>SHOPPINGCART PAGINA</h1>
     </body>
 </template>
 <style lang="scss" scoped>
-
+    h1 {
+        margin-top: 250px;
+    }
 </style>
