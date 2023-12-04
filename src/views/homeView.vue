@@ -28,7 +28,7 @@ export default {
             <div class="main__text">
                 <h1>G2 Esports <br> Worlds Jersey 2023</h1>
                 <p>Support our champs in style!</p>
-                <a href="products.html" class="main__btn">Shop Now <i class='bx bx-right-arrow-alt'></i></a>
+                <router-link to="/shop"><a href="products.html" class="main__btn">Shop Now<i class='bx bx-right-arrow-alt'></i></a></router-link>
             </div>
         </section>
 

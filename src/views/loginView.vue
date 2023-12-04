@@ -57,7 +57,7 @@ export default {
 
                 <div class="media__options">
                     <a href="#" class="field google">
-                        <img src="/assets/google.png" alt="" class="google__img">
+                        <img src="@/assets/google.png" alt="" class="google__img">
                         <span>Login with Google</span>
                     </a>
                 </div>
@@ -67,6 +67,8 @@ export default {
     </body>
 </template>
 <style lang="scss" scoped>
+    @import '../scss/base.scss';
+
     .login__container {
         @include basicSectionStyling();
         display: flex;

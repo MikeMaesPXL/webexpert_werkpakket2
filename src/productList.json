@@ -1,82 +1,202 @@
 [
     {
         "id": 1,
-        "title": "G2 2023 PRO KIT",
-        "short_description": "This is a test description for item 1",
+        "title": "G2 - 2023 PRO KIT",
+        "short_description": "Our 2023 pro kit. Created for only the best.",
         "image": "G2PROKIT2023.jpg",
         "price": 84.99,
         "vat_rate": 21,
-        "stock_quantity": 120,
-        "tags": ["Jersey"]
+        "stock_quantity": 30,
+        "tags": ["All", "Jersey"]
       },
       {
         "id": 2,
-        "title": "MSI 2023 JERSEY",
-        "short_description": "This is a test description for item 2",
+        "title": "G2 - MSI 2023 JERSEY",
+        "short_description": "HAHAHAHA! Be as mad as the joker with our 2023 MSI jersey.",
         "image": "G2MSI2023.jpg",
         "price": 64.99,
         "vat_rate": 21,
-        "stock_quantity": 150,
-        "tags": ["Jersey"]
+        "stock_quantity": 20,
+        "tags": ["All", "Jersey"]
       },
       {
         "id": 3,
-        "title": "MSI 2022 JERSEY",
-        "short_description": "This is a test description for item 3",
+        "title": "G2 - MSI 2022 JERSEY",
+        "short_description": "Be a golden warrior amongst the best with our 2023 MSI jersey.",
         "image": "G2MSI2022.jpg",
         "price": 54.99,
         "vat_rate": 21,
-        "stock_quantity": 135,
-        "tags": ["Jersey"]
+        "stock_quantity": 20,
+        "tags": ["All", "Jersey"]
       },
       {
         "id": 4,
-        "title": "TEST-ITEM FOR FILTER",
-        "short_description": "TESTITEM!",
-        "image": "G2MSI2023.jpg",
-        "price": 0.00,
-        "vat_rate": 100,
-        "stock_quantity": 100,
-        "tags": [""]
+        "title": "G2 - Year of the Rabbit 2023",
+        "short_description": "This is a test description for item 4",
+        "image": "G2YEAROFTHERABBIT2023.png",
+        "price": 69.99,
+        "vat_rate": 21,
+        "stock_quantity": 20,
+        "tags": ["All", "Jersey"]
       },
       {
         "id": 5,
-        "title": "TEST-ITEM FOR FILTER 2",
-        "short_description": "TESTITEM!",
-        "image": "G2MSI2022.jpg",
-        "price": 0.00,
-        "vat_rate": 100,
-        "stock_quantity": 80,
-        "tags": [""]
+        "title": "G2 - Worlds 2023",
+        "short_description": "Join us and color the arena black and white with our new worlds jersey.",
+        "image": "G2WORLDS2023.png",
+        "price": 89.99,
+        "vat_rate": 21,
+        "stock_quantity": 40,
+        "tags": ["All", "Jersey"]
       },
       {
         "id": 6,
-        "title": "TEST-ITEM FOR FILTER 3",
-        "short_description": "TESTITEM!",
-        "image": "G2MSI2023.jpg",
-        "price": 0.00,
-        "vat_rate": 100,
-        "stock_quantity": 90,
-        "tags": [""]
+        "title": "G2 - Pro kit jacket 2022",
+        "short_description": "This is a test description for item 6",
+        "image": "G2PROKITJACKET2022.png",
+        "price": 49.99,
+        "vat_rate": 21,
+        "stock_quantity": 15,
+        "tags": ["All", "Jackets"]
       },
       {
         "id": 7,
-        "title": "TEST-ITEM FOR FILTER 4",
-        "short_description": "TESTITEM!",
-        "image": "G2MSI2022.jpg",
-        "price": 0.00,
-        "vat_rate": 100,
-        "stock_quantity": 95,
-        "tags": [""]
+        "title": "G2 - Pro kit pants 2022",
+        "short_description": "This is a test description for item 7",
+        "image": "G2PROKITPANTS2022.png",
+        "price": 49.99,
+        "vat_rate": 21,
+        "stock_quantity": 10,
+        "tags": ["All", "Pants"]
       },
       {
         "id": 8,
+        "title": "G2 - Pro kit sleeves standard 2023",
+        "short_description": "This is a test description for item 8",
+        "image": "G2PROKITSLEEVESTANDARD2023.png",
+        "price": 0.00,
+        "vat_rate": 21,
+        "stock_quantity": 20,
+        "tags": ["All", "Sleeves"]
+      },
+      {
+        "id": 9,
+        "title": "G2 - Sami Samurai Plush",
+        "short_description": "There hasn't been a plushie that looked as adorable and deadly as our Sami.",
+        "image": "G2SAMISAMURAIPLUSH.png",
+        "price": 29.99,
+        "vat_rate": 21,
+        "stock_quantity": 35,
+        "tags": ["All", "Accessories"]
+      },
+      {
+        "id": 10,
+        "title": "G2 - Sami Slippers",
+        "short_description": "This is a test description for item 10",
+        "image": "G2SAMISLIPPERS.png",
+        "price": 19.99,
+        "vat_rate": 21,
+        "stock_quantity": 5,
+        "tags": ["All", "Accessories"]
+      },
+      {
+        "id": 11,
+        "title": "G2 x New Era - Lifestyle 9FIFTY Snapback",
+        "short_description": "This is a test description for item 11",
+        "image": "G2SNAPBACKHAT.png",
+        "price": 24.99,
+        "vat_rate": 21,
+        "stock_quantity": 10,
+        "tags": ["All", "Headwear"]
+      },
+      {
+        "id": 12,
+        "title": "G2 ESPORTS x New Era - Cuff Beanie",
+        "short_description": "This is a test description for item 12",
+        "image": "G2BEANIE.png",
+        "price": 19.99,
+        "vat_rate": 21,
+        "stock_quantity": 20,
+        "tags": ["All", "Headwear"]
+      },
+      {
+        "id": 13,
+        "title": "G2 ESPORTS x New Era - Cuff Beanie Grey",
+        "short_description": "This is a test description for item 13",
+        "image": "G2BEANIEGREY.png",
+        "price": 19.99,
+        "vat_rate": 21,
+        "stock_quantity": 15,
+        "tags": ["All", "Headwear"]
+      },
+      {
+        "id": 14,
+        "title": "G2 ESPORTS x New Era - Cuff Beanie Red/Black/White",
+        "short_description": "TESTITEM!",
+        "image": "G2BEANIERBW.png",
+        "price": 22.99,
+        "vat_rate": 21,
+        "stock_quantity": 12,
+        "tags": ["All", "Headwear"]
+      },
+      {
+        "id": 15,
         "title": "TEST-ITEM FOR FILTER 5",
         "short_description": "TESTITEM!",
         "image": "G2MSI2023.jpg",
         "price": 0.00,
-        "vat_rate": 100,
-        "stock_quantity": 90,
-        "tags": [""]
+        "vat_rate": 21,
+        "stock_quantity": 0,
+        "tags": ["All"]
+      },
+      {
+        "id": 16,
+        "title": "TEST-ITEM FOR FILTER 5",
+        "short_description": "TESTITEM!",
+        "image": "G2MSI2023.jpg",
+        "price": 0.00,
+        "vat_rate": 21,
+        "stock_quantity": 0,
+        "tags": ["All"]
+      },
+      {
+        "id": 17,
+        "title": "TEST-ITEM FOR FILTER 5",
+        "short_description": "TESTITEM!",
+        "image": "G2MSI2023.jpg",
+        "price": 0.00,
+        "vat_rate": 21,
+        "stock_quantity": 0,
+        "tags": ["All"]
+      },
+      {
+        "id": 18,
+        "title": "TEST-ITEM FOR FILTER 5",
+        "short_description": "TESTITEM!",
+        "image": "G2MSI2023.jpg",
+        "price": 0.00,
+        "vat_rate": 21,
+        "stock_quantity": 0,
+        "tags": ["All"]
+      },
+      {
+        "id": 19,
+        "title": "TEST-ITEM FOR FILTER 5",
+        "short_description": "TESTITEM!",
+        "image": "G2MSI2023.jpg",
+        "price": 0.00,
+        "vat_rate": 21,
+        "stock_quantity": 0,
+        "tags": ["All"]
+      },
+      {
+        "id": 20,
+        "title": "TEST-ITEM FOR FILTER 5",
+        "short_description": "TESTITEM!",
+        "image": "G2MSI2023.jpg",
+        "price": 0.00,
+        "vat_rate": 21,
+        "stock_quantity": 0,
+        "tags": ["All"]
       }
 ]

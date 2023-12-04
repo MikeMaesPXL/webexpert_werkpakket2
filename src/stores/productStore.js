@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { productsJSON } from "/src/productList.json"
+import  productsJSON  from "/src/productList.json"
 
 export const useProductStore = defineStore('products', {
     //State

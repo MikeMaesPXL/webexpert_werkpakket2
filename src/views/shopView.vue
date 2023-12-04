@@ -10,9 +10,10 @@ export default {
         return {
             products: useProductStore(),
             tags: [],
-            tagFilter: '',
-            //Array met tags
-            filterOptions: ["All", "Jersey", "Jackets", "Pants", "Sleeves"]
+            selectedFilters: [],
+            filterOptions: ["All", "Jersey", "Jackets", "Pants", "Sleeves", "Headwear", "Accessories"],
+            pageSize: 8,
+            page: 1,
         }
     },
     components: {
@@ -20,21 +21,38 @@ export default {
         Footer,
         ProductCard
     },
-    methods: {
-        filterProducts() {
-            console.log("filter")
-            // Voeg hier de array toe
-            if (this.tagFilter === '') {
-                this.tags = this.products.productList;
+    computed: {
+        filteredProducts() {
+            if (this.selectedFilters.length === 0) {
+                return this.products.productList
             } else {
-                this.tags = this.products.productList.filter(products =>
-                products.tags.some(tag => tag.toLowerCase().includes(this.tagFilter.toLowerCase())))
+                return this.products.productList.filter(product => 
+                this.selectedFilters.some(filter => product.tags.includes(filter)))
             }
         },
-        resetFilter() {
-            console.log("reset")
-            this.tagFilter = ''
-            this.tags = this.products.productList
+        totalPages() {
+            return Math.ceil(this.filteredProducts.length / this.pageSize)
+        },
+        paginatedProducts() {
+            const startIndex = (this.page - 1) * this.pageSize
+            const endIndex = startIndex + this.pageSize
+            return this.filteredProducts.slice(startIndex, endIndex)
+        }
+    },
+    methods: {
+        toggleFilter(filter) {
+            const index = this.selectedFilters.indexOf(filter)
+
+            if (index === -1) {
+                this.selectedFilters.push(filter)
+            } else {
+                this.selectedFilters.splice(index, 1)
+            }
+        },
+        goToPage(newPage) {
+            if (newPage >= 1 && newPage <= this.totalPages) {
+                this.page = newPage
+            }
         }
     },
     
@@ -47,30 +65,21 @@ export default {
                 <h1>Featured Items</h1>
                 <p>G2 Esports - 2023</p>
             </div>
-            <!-- <div class="filter">
-                <span v-for="(text, index) in filterOptions" :key="index">
-                    {{ text }}
-                </span>
-            </div> -->
             <div class="filter">
-                <span @click="resetFilter()">All</span>
-                <span @click="filterProducts()">Jersey</span>
-                <span @click="filterProducts()">Jackets</span>
-                <span @click="filterProducts()">Pants</span>
-                <span @click="filterProducts()">Sleeves</span>
+                <span v-for="filterOption in filterOptions" :key="filterOption" @click="toggleFilter(filterOption)">
+                    {{ filterOption }}
+                </span>
             </div>
             <div class="products__wrapper">
-                <div v-for="(product, id) in this.products.productList" :key="id">
+                <div v-for="(product, id) in paginatedProducts" :key="id">
                     <ProductCard :product="product" />
                 </div>
             </div>
 
             <div class="pagination">
-                <span><i class='bx bx-chevron-left'></i></span>
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-                <span><i class='bx bx-chevron-right'></i></span>
+                <span @click="goToPage(page - 1)" :disabled="page === 1"><i class='bx bx-chevron-left'></i></span>
+                <span>{{ page }} / {{ totalPages }}</span>
+                <span @click="goToPage(page + 1)" :disabled="page === totalPages"><i class='bx bx-chevron-right'></i></span>
             </div>
         </section>
     </body>
