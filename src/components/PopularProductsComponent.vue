@@ -1,5 +1,6 @@
 <script>
 import productList from '@/productList.json'
+// import { useProductStore } from '@/stores/productStore.js'
 import ProductCard from '@/components/ProductCardComponent.vue'
 
     export default {
