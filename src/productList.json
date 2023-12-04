@@ -2,7 +2,7 @@
     {
         "id": 1,
         "title": "G2 - 2023 PRO KIT",
-        "short_description": "Our 2023 pro kit. Created for only the best.",
+        "short_description": "Our 2023 pro kit. Created for the best in our G2 squad.",
         "image": "G2PROKIT2023.jpg",
         "price": 84.99,
         "vat_rate": 21,
@@ -32,7 +32,7 @@
       {
         "id": 4,
         "title": "G2 - Year of the Rabbit 2023",
-        "short_description": "This is a test description for item 4",
+        "short_description": "Hop Hop, Jump with us into the new year with our year of the rabbit jersey.",
         "image": "G2YEAROFTHERABBIT2023.png",
         "price": 69.99,
         "vat_rate": 21,
@@ -52,7 +52,7 @@
       {
         "id": 6,
         "title": "G2 - Pro kit jacket 2022",
-        "short_description": "This is a test description for item 6",
+        "short_description": "Never cold, always warm with our sturdy 2022 pro kit jacket.",
         "image": "G2PROKITJACKET2022.png",
         "price": 49.99,
         "vat_rate": 21,
@@ -62,7 +62,7 @@
       {
         "id": 7,
         "title": "G2 - Pro kit pants 2022",
-        "short_description": "This is a test description for item 7",
+        "short_description": "Comfy tracksuit for in and outdoors. Get cozy and game up.",
         "image": "G2PROKITPANTS2022.png",
         "price": 49.99,
         "vat_rate": 21,
@@ -72,9 +72,9 @@
       {
         "id": 8,
         "title": "G2 - Pro kit sleeves standard 2023",
-        "short_description": "This is a test description for item 8",
+        "short_description": "Our 2023 new improved pro kit sleeves. For you to be able to hit those flicks without any discomfort.",
         "image": "G2PROKITSLEEVESTANDARD2023.png",
-        "price": 0.00,
+        "price": 21.99,
         "vat_rate": 21,
         "stock_quantity": 20,
         "tags": ["All", "Sleeves"]
@@ -92,7 +92,7 @@
       {
         "id": 10,
         "title": "G2 - Sami Slippers",
-        "short_description": "This is a test description for item 10",
+        "short_description": "Keep those feet comfy and cozy with our Sami slippers.",
         "image": "G2SAMISLIPPERS.png",
         "price": 19.99,
         "vat_rate": 21,
@@ -102,7 +102,7 @@
       {
         "id": 11,
         "title": "G2 x New Era - Lifestyle 9FIFTY Snapback",
-        "short_description": "This is a test description for item 11",
+        "short_description": "Keep the sun out and your eyes rested.",
         "image": "G2SNAPBACKHAT.png",
         "price": 24.99,
         "vat_rate": 21,
@@ -112,7 +112,7 @@
       {
         "id": 12,
         "title": "G2 ESPORTS x New Era - Cuff Beanie",
-        "short_description": "This is a test description for item 12",
+        "short_description": "Our black beanie in collab with New Era.",
         "image": "G2BEANIE.png",
         "price": 19.99,
         "vat_rate": 21,
@@ -122,7 +122,7 @@
       {
         "id": 13,
         "title": "G2 ESPORTS x New Era - Cuff Beanie Grey",
-        "short_description": "This is a test description for item 13",
+        "short_description": "Our grey beanie in collab with New Era.",
         "image": "G2BEANIEGREY.png",
         "price": 19.99,
         "vat_rate": 21,
@@ -132,7 +132,7 @@
       {
         "id": 14,
         "title": "G2 ESPORTS x New Era - Cuff Beanie Red/Black/White",
-        "short_description": "TESTITEM!",
+        "short_description": "Our multicolored beanie in collab with New Era.",
         "image": "G2BEANIERBW.png",
         "price": 22.99,
         "vat_rate": 21,
@@ -141,62 +141,62 @@
       },
       {
         "id": 15,
-        "title": "TEST-ITEM FOR FILTER 5",
-        "short_description": "TESTITEM!",
-        "image": "G2MSI2023.jpg",
-        "price": 0.00,
+        "title": "G2 x Ralph Lauren Bundle",
+        "short_description": "Our high end collab bundle with Ralph Lauren (Pants and Jacket combo).",
+        "image": "G2RALPHLAURENBUNDLE.png",
+        "price": 379.99,
         "vat_rate": 21,
-        "stock_quantity": 0,
-        "tags": ["All"]
+        "stock_quantity": 3,
+        "tags": ["All", "Pants", "Jackets"]
       },
       {
         "id": 16,
-        "title": "TEST-ITEM FOR FILTER 5",
-        "short_description": "TESTITEM!",
-        "image": "G2MSI2023.jpg",
-        "price": 0.00,
+        "title": "G2 - Pro kit flag 2023",
+        "short_description": "Support us in the arena with our own G2 flag.",
+        "image": "G2PROKITFLAG2023.png",
+        "price": 34.99,
         "vat_rate": 21,
-        "stock_quantity": 0,
-        "tags": ["All"]
+        "stock_quantity": 8,
+        "tags": ["All", "Accessories"]
       },
       {
         "id": 17,
-        "title": "TEST-ITEM FOR FILTER 5",
-        "short_description": "TESTITEM!",
-        "image": "G2MSI2023.jpg",
-        "price": 0.00,
+        "title": "G2 - Caps Plush",
+        "short_description": "Buy your own caps! (lawyer said we have to say it's a joke)",
+        "image": "G2CAPSPLUSH.png",
+        "price": 24.99,
         "vat_rate": 21,
-        "stock_quantity": 0,
-        "tags": ["All"]
+        "stock_quantity": 22,
+        "tags": ["All", "Accessories"]
       },
       {
         "id": 18,
-        "title": "TEST-ITEM FOR FILTER 5",
-        "short_description": "TESTITEM!",
-        "image": "G2MSI2023.jpg",
-        "price": 0.00,
+        "title": "G2 - Logo Cushion",
+        "short_description": "G2's cozy, comfy little logo cushion.",
+        "image": "G2LOGOCUSHION.png",
+        "price": 29.99,
         "vat_rate": 21,
-        "stock_quantity": 0,
-        "tags": ["All"]
+        "stock_quantity": 10,
+        "tags": ["All", "Accessories"]
       },
       {
         "id": 19,
-        "title": "TEST-ITEM FOR FILTER 5",
-        "short_description": "TESTITEM!",
-        "image": "G2MSI2023.jpg",
-        "price": 0.00,
+        "title": "G2 - Pro kit 2023 Valorant",
+        "short_description": "Support our valorant team ablaze (not for real)",
+        "image": "G2PROKIT2023VALORANT.png",
+        "price": 69.99,
         "vat_rate": 21,
-        "stock_quantity": 0,
-        "tags": ["All"]
+        "stock_quantity": 14,
+        "tags": ["All", "Jersey"]
       },
       {
         "id": 20,
-        "title": "TEST-ITEM FOR FILTER 5",
-        "short_description": "TESTITEM!",
-        "image": "G2MSI2023.jpg",
-        "price": 0.00,
+        "title": "G2 - Pro kit 2023 Rainbow Six",
+        "short_description": "Support our rainbow six team as they conquer champions.",
+        "image": "G2PROKIT2023R6.png",
+        "price": 49.99,
         "vat_rate": 21,
-        "stock_quantity": 0,
-        "tags": ["All"]
+        "stock_quantity": 4,
+        "tags": ["All", "Jersey"]
       }
 ]
