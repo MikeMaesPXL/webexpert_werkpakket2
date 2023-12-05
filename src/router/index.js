@@ -18,9 +18,7 @@ const router = createRouter({
     { path: '/shoppingCart', component: shoppingCartView },
     { path: '/teams', component: teamsView },
     { path: '/news', component: newsView },
-    // { path: '/product/:id', component: productView, props: true}
     { path: '/product/:id', name: 'product', component: productView, props: true },
-    // { path: '/:notFound(.*)', component: NotFound }
     { path: '/:catchAll(.*)', redirect: '/' },
   ]
 })

@@ -7,10 +7,9 @@ export const useProductStore = defineStore('products', {
         productList: productsJSON,
     }),
     //Getters
-    getters: { //This getter should be correct from state -> productId. Returns the products it finds according to the id
-        //that is given by ProductCardComponent?
+    getters: {
         getProductById: (state) => (productId) => {
-          return state.productList.find((product) => product.id === productId) || null;
+          return state.productList.find((product) => product.id == productId) || null;
         },
       },
     // getters: {

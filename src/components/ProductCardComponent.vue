@@ -5,7 +5,6 @@
         },
         methods: {
             viewProductDetails() {
-                // -> A method that uses router push to edit the path name and send an id along.. -> This idea arrives back into productView?
                 this.$router.push({ name: 'product', params: { id: this.product.id } })
             }
         }
@@ -14,10 +13,9 @@
 <template>
     <div class="card">
         <div class="img__card">
-            <img v-bind:src="'src/assets/' + product.image" :alt="product.title">
+            <img :src="'src/assets/' + product.image" :alt="product.title">
             <div class="overlay">
                 <button class="add__to__cart">Add to Cart</button>
-                <!-- The issue must be here? -> Click function -->
                 <button class="view__details" @click="viewProductDetails">View Details</button>
             </div>
         </div>

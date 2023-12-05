@@ -74,7 +74,7 @@
         "vat_rate": 21,
         "stock_quantity": 10,
         "tags": ["All", "Pants"],
-        "sizes": ["S", "M", "L", "XL", "XLL"]
+        "sizes": ["S", "M", "L", "XL", "XXL"]
       },
       {
         "id": 8,
@@ -85,7 +85,7 @@
         "vat_rate": 21,
         "stock_quantity": 20,
         "tags": ["All", "Sleeves"],
-        "sizes": ["S", "M", "L", "XL", "XLL"]
+        "sizes": ["S", "M", "L", "XL", "XXL"]
       },
       {
         "id": 9,
@@ -184,7 +184,7 @@
         "vat_rate": 21,
         "stock_quantity": 22,
         "tags": ["All", "Accessories"],
-        "sizes": ["S", "M", "L", "XL", "XLL"]
+        "sizes": ["S", "M", "L", "XL", "XXL"]
       },
       {
         "id": 18,
@@ -195,7 +195,7 @@
         "vat_rate": 21,
         "stock_quantity": 10,
         "tags": ["All", "Accessories"],
-        "sizes": ["S", "M", "L", "XL", "XLL"]
+        "sizes": ["S", "M", "L", "XL", "XXL"]
       },
       {
         "id": 19,
@@ -206,7 +206,7 @@
         "vat_rate": 21,
         "stock_quantity": 14,
         "tags": ["All", "Jersey"],
-        "sizes": ["S", "M", "L", "XL", "XLL"]
+        "sizes": ["S", "M", "L", "XL", "XXL"]
       },
       {
         "id": 20,
@@ -217,6 +217,6 @@
         "vat_rate": 21,
         "stock_quantity": 4,
         "tags": ["All", "Jersey"],
-        "sizes": ["S", "M", "L", "XL", "XLL"]
+        "sizes": ["S", "M", "L", "XL", "XXL"]
       }
 ]
