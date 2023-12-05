@@ -19,13 +19,13 @@
 <template>
     <section class="product__details">
         <div class="single__product__image">
-            <img v-if="product" :src="'src/assets/' + product.image" :alt="product.title" id="main__image" width="100%">
+            <img v-if="product" :src="'/assets/' + product.image" :alt="product.title" id="main__image" width="100%">
         </div>
 
         <div v-if="product" class="single__product__details">
             <h6>Home / G2 Shop</h6>
             <h4>{{ product.title }}</h4>
-            <h2>{{ product.price }}</h2>
+            <h2>{{ '€' + product.price }}</h2>
             <select id="sizes__select">
                 <option>Select Size</option>
                 <option v-for="size in product.sizes" :key="size">{{ size }}</option>
