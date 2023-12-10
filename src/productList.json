@@ -94,7 +94,7 @@
         "image": "G2SAMISAMURAIPLUSH.png",
         "price": 29.99,
         "vat_rate": 21,
-        "stock_quantity": 35,
+        "stock_quantity": 25,
         "tags": ["All", "Accessories"],
         "sizes": ["S", "M", "L", "XL", "XLL"]
       },

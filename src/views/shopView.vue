@@ -152,11 +152,19 @@ export default {
         .products__container {
             padding-top: 15%;
         }
+        .filter {
+            display: flex;
+            flex-wrap: wrap;
+        }
     }
 
     @media screen and (max-width: 414px) {
         .products__container {
             padding-top: 30%;
+        }
+        .filter {
+            display: flex;
+            flex-wrap: wrap;
         }
     }
 </style>

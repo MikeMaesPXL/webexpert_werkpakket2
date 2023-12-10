@@ -7,7 +7,7 @@ import Footer from '@/components/FooterComponent.vue'
 export default {
     data() {
         return {
-            products: useProductStore
+            products: useProductStore,
         }
     },
     components: {
@@ -17,12 +17,10 @@ export default {
 }
 </script>
 <template>
-    <body>
-        <h1>ABOUT PAGINA</h1>
-    </body>
+    <h1>HEADER</h1>
 </template>
 <style lang="scss" scoped>
     h1 {
-        margin-top: 250px;
+        margin-top: 200px;
     }
 </style>
