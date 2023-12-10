@@ -22,5 +22,10 @@ export const useShoppingCartStore = defineStore('shoppingCart', {
                 this.cartItems.push(cartItem);
             }
         },
+        removeFromCart(index) {
+            if (index >= 0 && index < this.cartItems.length) {
+              this.cartItems.splice(index, 1);
+            }
+        },
     },
 });
