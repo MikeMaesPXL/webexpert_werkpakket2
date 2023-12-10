@@ -66,126 +66,152 @@ export default {
                     </div>
             </div>
             <div class="quantity-controls">
-                <button @click="decrementQuantity(index)">-</button>
-                <span class="quantity">{{ product.quantity }}</span>
                 <button @click="incrementQuantity(index)">+</button>
+                <span class="quantity">{{ product.quantity }}</span>
+                <button @click="decrementQuantity(index)">-</button>
                 <button @click="removeProduct(index)">Remove</button>
             </div>
                 <p class="item-price">{{ calculatePriceWithVAT(product.product) }} (VAT incl.)</p>
             </div>
             <div class="prices">
                 <div class="price-with-vat">
+                    <p>Total without VAT: ${{ calculateTotalWithoutVAT() }}</p>
                     <p>Total with VAT: ${{ calculateTotalWithVAT() }}</p>
                 </div>
-                <div class="price-without-vat">
+                <!-- <div class="price-without-vat">
                     <p>Total without VAT: ${{ calculateTotalWithoutVAT() }}</p>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
 </template>
 <style lang="scss" scoped>
-    @import '../scss/base.scss';
+  @import '../scss/base.scss';
 
-    .shopping-cart {
-        @include basicSectionStyling();
-        margin-top: 250px;
-        padding: 20px;
-        background-color: white;
+  .shopping-cart {
+    @include basicSectionStyling();
+    margin-top: 250px;
+    padding: 20px;
+    background-color: white;
 
-        p {
-            margin: 0;
-        }
-
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid red;
-            padding: 10px;
-
-            .item-details {
-                display: flex;
-                align-items: center;
-
-                .item-image {
-                    width: 60px;
-                    height: 60px;
-                    margin-right: 10px;
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                    }
-                }
-
-                .item-info {
-                    h3 {
-                        margin: 0;
-                        font-size: 18px;
-                    }
-                    .item-description {
-                        margin: 0;
-                        font-size: 14px;
-                        color: $color-secondary;
-                    }
-                }
-            }
-
-            .quantity-controls {
-                display: flex;
-                align-items: center;
-
-                button {
-                    font-size: 14px;
-                    margin: 0 5px;
-                    cursor: pointer;
-                    background-color: $color-primary;
-                    color: $color-light;
-                    border: none;
-                    padding: 5px 10px;
-                    border-radius: 5px;
-
-                    &:hover {
-                        background-color: darken($color-primary, 10%);
-                    }
-                }
-
-                .quantity {
-                    font-size: 16px;
-                    margin: 0 5px;
-                }
-
-                .remove-button {
-                    background-color: transparent;
-                    border: none;
-                    color: $color-primary;
-                    cursor: pointer;
-                    font-size: 14px;
-
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-            }
-
-            .item-price {
-                font-size: 18px;
-            }
-        }
-
-        .prices {
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
-
-            .price-with-vat,
-            .price-without-vat {
-                p {
-                    margin: 0;
-                    font-size: 16px;
-                }
-            }
-        }
+    p {
+      margin: 0;
     }
+
+    .cart-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid red;
+      padding: 10px;
+
+      .item-details {
+        display: flex;
+        align-items: center;
+        flex: 1;
+
+        .item-image {
+          width: 60px;
+          height: 60px;
+          margin-right: 10px;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .item-info {
+          h3 {
+            margin: 0;
+            font-size: 18px;
+          }
+          .item-description {
+            margin: 0;
+            font-size: 14px;
+            color: $color-secondary;
+          }
+        }
+      }
+
+      .quantity-controls {
+        display: flex;
+        align-items: center;
+
+        button {
+          font-size: 14px;
+          margin: 5px;
+          cursor: pointer;
+          background-color: $color-primary;
+          color: $color-light;
+          border: none;
+          padding: 5px 10px;
+          border-radius: 5px;
+
+          &:hover {
+            background-color: darken($color-primary, 10%);
+          }
+        }
+
+        .quantity {
+          font-size: 16px;
+          margin: 0 5px;
+        }
+
+        .remove-button {
+          background-color: transparent;
+          border: none;
+          color: $color-primary;
+          cursor: pointer;
+          font-size: 14px;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .item-price {
+        font-size: 18px;
+      }
+    }
+
+    .prices {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap; /* Allow prices to wrap to the next line */
+      justify-content: space-between;
+      align-items: flex-start; /* Adjust alignment to start */
+
+      .price-with-vat {
+        flex: 1;
+        p {
+          margin: 0;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .cart-item {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .item-details {
+        margin-bottom: 10px;
+      }
+
+      .quantity-controls {
+        margin-top: 10px;
+      }
+    }
+
+    .prices {
+      flex-direction: column;
+      margin-top: 10px;
+    }
+  }
 </style>
