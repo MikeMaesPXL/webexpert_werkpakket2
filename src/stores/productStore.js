@@ -11,6 +11,10 @@ export const useProductStore = defineStore('products', {
       getProductById: (state) => (productId) => {
         return state.productList.find((product) => product.id == productId) || null;
       },
+      highestQuantityProducts() {
+        const sortedProducts = [...this.productList].sort((a, b) => b.stock_quantity - a.stock_quantity);
+        return sortedProducts.slice(0, 3);
+      },
     },
     //Actions
     actions: {

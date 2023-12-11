@@ -7,6 +7,7 @@
             return {
                 quantity: 1,
                 showPopup: false,
+                assetUrl: "http://localhost:5173/src/assets/" // Steek dit uiteindelijk in een store
             };
         },
         computed: {
@@ -54,7 +55,7 @@
 <template>
     <section class="product__details">
         <div class="single__product__image">
-            <!-- <img v-if="product" :src="'/assets/' + product.image" :alt="product.title" id="main__image" width="100%"> -->
+            <img v-if="product" :src="assetUrl + product.image" :alt="product.title" id="main__image" width="100%">
         </div>
 
         <div v-if="product" class="single__product__details">
@@ -121,12 +122,14 @@
         margin-top: 20px;
 
         .single__product__image {
-            // width: 40%;
+            width: 40%;
             height: 900px;
-            margin-right: 50px;
+            margin-right: 100px;
             padding: 50px;
             img {
+                width: 100%;
                 height: 100%;
+                object-fit: cover;
             }
         }
         .single__product__details {

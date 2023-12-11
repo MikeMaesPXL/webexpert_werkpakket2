@@ -1,12 +1,12 @@
 <script>
-import productList from '@/productList.json'
-// import { useProductStore } from '@/stores/productStore.js'
+// import productList from '@/productList.json'
+import { useProductStore } from '@/stores/productStore.js'
 import ProductCard from '@/components/ProductCardComponent.vue'
 
     export default {
     data() {
         return {
-            productList: [],
+            productList: useProductStore(),
         }
     },
     components: {
@@ -14,8 +14,7 @@ import ProductCard from '@/components/ProductCardComponent.vue'
     },
     computed: {
         highestQuantityProducts() {
-            const sortedProducts = [...productList].sort((a, b) => b.stock_quantity - a.stock_quantity);
-            return sortedProducts.slice(0, 3);
+            return this.productList.highestQuantityProducts;
         },
     },
 }

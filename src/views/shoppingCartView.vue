@@ -10,6 +10,7 @@ export default {
         return {
             products: useProductStore(),
             shoppingCartProducts: useShoppingCartStore(),
+            assetUrl: "http://localhost:5173/src/assets/" // Steek dit uiteindelijk in een store
         };
     },
     components: {
@@ -52,31 +53,32 @@ export default {
 }
 </script>
 <template>
-    <div class="shopping-cart">
+  <body>
+    <div class="shopping__cart">
         <div v-if="shoppingCartProducts.cartItems.length === 0">
-            <p>Your shopping cart is empty.</p>
+            <p class="card__empty__text">Your shopping cart is empty.</p>
         </div>
         <div v-else>
-            <div v-for="(product, index) in shoppingCartProducts.cartItems" :key="index" class="cart-item">
-                <div class="item-details">
-                    <img :src="'src/product.product.image'" alt="Product Image" class="item-image" />
-                    <div class="item-info">
+            <div v-for="(product, index) in shoppingCartProducts.cartItems" :key="index" class="cart__item">
+                <div class="item__details">
+                    <img :src=" assetUrl + product.product.image" :alt="product.alt" class="item__image" />
+                    <div class="item__info">
                         <h3>{{ product.product.title }}</h3>
-                        <p class="item-description">{{ product.product.short_description }}</p>
+                        <p class="item__description">{{ product.product.short_description }}</p>
                     </div>
             </div>
-            <div class="quantity-controls">
+            <div class="quantity__controls">
                 <button @click="incrementQuantity(index)">+</button>
                 <span class="quantity">{{ product.quantity }}</span>
                 <button @click="decrementQuantity(index)">-</button>
                 <button @click="removeProduct(index)">Remove</button>
             </div>
-                <p class="item-price">{{ calculatePriceWithVAT(product.product) }} (VAT incl.)</p>
+                <p class="item__price">{{ '€' + calculatePriceWithVAT(product.product) }} (VAT incl.)</p>
             </div>
             <div class="prices">
-                <div class="price-with-vat">
-                    <p>Total without VAT: ${{ calculateTotalWithoutVAT() }}</p>
-                    <p>Total with VAT: ${{ calculateTotalWithVAT() }}</p>
+                <div class="price__with__vat">
+                    <p>Total without VAT: <span>€{{ calculateTotalWithoutVAT() }}</span></p>
+                    <p>Total with VAT: <span>€{{ calculateTotalWithVAT() }}</span></p>
                 </div>
                 <!-- <div class="price-without-vat">
                     <p>Total without VAT: ${{ calculateTotalWithoutVAT() }}</p>
@@ -84,21 +86,35 @@ export default {
             </div>
         </div>
     </div>
+  </body>  
 </template>
 <style lang="scss" scoped>
   @import '../scss/base.scss';
 
-  .shopping-cart {
+  .card__empty__text {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+  }
+  .shopping__cart {
     @include basicSectionStyling();
-    margin-top: 250px;
+    margin-top: 150px;
     padding: 20px;
     background-color: white;
+    // display: flex;
+    // justify-content: center;
+    width: 80%;
 
     p {
       margin: 0;
     }
 
-    .cart-item {
+    .cart__item {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -106,14 +122,14 @@ export default {
       border-bottom: 1px solid red;
       padding: 10px;
 
-      .item-details {
+      .item__details {
         display: flex;
         align-items: center;
         flex: 1;
 
-        .item-image {
-          width: 60px;
-          height: 60px;
+        .item__image {
+          width: 25%;
+          height: 400px;
           margin-right: 10px;
 
           img {
@@ -123,20 +139,20 @@ export default {
           }
         }
 
-        .item-info {
+        .item__info {
           h3 {
             margin: 0;
-            font-size: 18px;
+            font-size: 26px;
           }
-          .item-description {
+          .item__description {
             margin: 0;
-            font-size: 14px;
+            font-size: 18px;
             color: $color-secondary;
           }
         }
       }
 
-      .quantity-controls {
+      .quantity__controls {
         display: flex;
         align-items: center;
 
@@ -160,7 +176,7 @@ export default {
           margin: 0 5px;
         }
 
-        .remove-button {
+        .remove__button {
           background-color: transparent;
           border: none;
           color: $color-primary;
@@ -173,7 +189,7 @@ export default {
         }
       }
 
-      .item-price {
+      .item__price {
         font-size: 18px;
       }
     }
@@ -185,26 +201,31 @@ export default {
       justify-content: space-between;
       align-items: flex-start; /* Adjust alignment to start */
 
-      .price-with-vat {
+      .price__with__vat {
         flex: 1;
         p {
           margin: 0;
-          font-size: 16px;
+          font-size: 20px;
+          font-weight: 700;
+
+          span {
+            color: $color-primary;
+          }
         }
       }
     }
   }
 
   @media only screen and (max-width: 600px) {
-    .cart-item {
+    .cart__item {
       flex-direction: column;
       align-items: flex-start;
 
-      .item-details {
+      .item__details {
         margin-bottom: 10px;
       }
 
-      .quantity-controls {
+      .quantity__controls {
         margin-top: 10px;
       }
     }
