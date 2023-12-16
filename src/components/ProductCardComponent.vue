@@ -2,12 +2,15 @@
     import { useProductStore } from '@/stores/productStore.js'
     import { useShoppingCartStore } from '@/stores/shoppingCartStore.js'
 
+    import { useAuthStore } from '@/stores/authStore.js';
+
     export default {
         data() {
             return {
                 products: useProductStore(),
-                showPopup: false,
                 shoppingCartProducts: useShoppingCartStore(),
+                authChecker: useAuthStore(),
+                showPopup: false,
                 quantity: 1
             };
         },
@@ -19,26 +22,27 @@
                 this.$router.push({ name: 'product', params: { id: this.product.id } })
             },
             addToCart() {
-                console.log('button pressed, item added');
-                if (this.product) {
-                    const cartItem = {
-                        product: this.product,
-                        quantity: this.quantity,
-                    };
-                    //Add item
-                    console.log('added item')
-                    this.shoppingCartProducts.addToCart(cartItem);
-                    //Update stock
-                    console.log('updated stock')
-                    this.products.updateStockQuantity(this.product.id, -this.quantity);
-                    //Show popup
-                    this.showPopup = true;
-                    //Hide the pop-up after a delay
-                    setTimeout(() => {
-                        this.showPopup = false;
-                    }, 3000);
+                if (this.authChecker.isLoggedIn) 
+                {
+                    console.log('button pressed, item added');
+                    if (this.product) {
+                        const cartItem = {
+                            product: this.product,
+                            quantity: this.quantity,
+                        };
+                        console.log('added item')
+                        this.shoppingCartProducts.addToCart(cartItem);
+                        console.log('updated stock')
+                        this.products.updateStockQuantity(this.product.id, -this.quantity);
+                        this.showPopup = true;
+                        setTimeout(() => {
+                            this.showPopup = false;
+                        }, 3000);
+                    } else {
+                        console.error('Product not found.');
+                    }
                 } else {
-                    console.error('Product not found.');
+                    this.$router.push('/login')
                 }
             },
         },

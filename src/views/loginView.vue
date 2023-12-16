@@ -1,5 +1,6 @@
 <script>
 import { useProductStore } from '@/stores/productStore.js'
+import { useAuthStore } from '@/stores/authStore.js';
 
 import Header from '@/components/HeaderComponent.vue'
 import Footer from '@/components/FooterComponent.vue'
@@ -7,12 +8,25 @@ import Footer from '@/components/FooterComponent.vue'
 export default {
     data() {
         return {
-            products: useProductStore()
+            products: useProductStore(),
+            authChecker: useAuthStore(),
+            email: '',
+            password: '',
         }
     },
     components: {
         Header,
         Footer
+    },
+    methods: {
+        async submitLogin() {
+            try {
+                await this.authChecker.login(this.email, this.password)
+                this.$router.go(-1);
+            } catch (error) {
+                console.error('Login failed:', error);
+            }
+        }
     }
 }
 </script>
@@ -23,13 +37,13 @@ export default {
                 <div class="form__content">
                     <h2>Login</h2>
 
-                    <form action="#">
+                    <form @submit.prevent="submitLogin">
                         <div class="field input__field">
-                            <input type="email" placeholder="Email" class="input">
+                            <input v-model="email" type="email" placeholder="Email" class="input">
                         </div>
 
                         <div class="field input__field">
-                            <input type="password" placeholder="Password" class="password">
+                            <input v-model="password" type="password" placeholder="Password" class="password">
                             <i class='bx bx-hide eye__icon'></i>
                         </div>
 
