@@ -7,22 +7,20 @@
             return {
                 quantity: 1,
                 showPopup: false,
-                assetUrl: "http://localhost:5173/src/assets/" // Steek dit uiteindelijk in een store
+                products: useProductStore(),
+                shoppingCartProducts: useShoppingCartStore()
             };
         },
         computed: {
-            productStore() {
-                return useProductStore();
-            },
-            shoppingCartStore() {
-                return useShoppingCartStore();
-            },
             product() {
                 const productId = this.$route.params.id;
-                return this.productStore.getProductById(productId)
+                return this.products.getProductById(productId)
             },
             isInStock() {
                 return this.product.stock_quantity > 0
+            },
+            assetUrl() {
+                return this.products.assetUrl;
             },
         },
         methods: {
@@ -35,10 +33,10 @@
                     };
                     //Add item
                     console.log('added item')
-                    this.shoppingCartStore.addToCart(cartItem);
+                    this.shoppingCartProducts.addToCart(cartItem);
                     //Update stock
                     console.log('updated stock')
-                    this.productStore.updateStockQuantity(this.product.id, -this.quantity);
+                    this.products.updateStockQuantity(this.product.id, -this.quantity);
                     //Show popup
                     this.showPopup = true;
                     //Hide the pop-up after a delay
@@ -88,7 +86,7 @@
 
     .popup {
         position: fixed;
-        top: 10vh; 
+        top: 13vh; 
         left: 50%;
         transform: translateX(-50%);
         background: $color-primary;
@@ -106,7 +104,7 @@
         }
 
         &-enter,
-        &-leave-to /* .popup-leave-active in <2.1.8 */ {
+        &-leave-to {
             opacity: 0;
         }
     }

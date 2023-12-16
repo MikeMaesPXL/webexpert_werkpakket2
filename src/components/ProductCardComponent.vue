@@ -1,21 +1,60 @@
 <script>
+    import { useProductStore } from '@/stores/productStore.js'
+    import { useShoppingCartStore } from '@/stores/shoppingCartStore.js'
+
     export default {
+        data() {
+            return {
+                products: useProductStore(),
+                showPopup: false,
+                shoppingCartProducts: useShoppingCartStore(),
+                quantity: 1
+            };
+        },
         props: {
             product: Object,
         },
         methods: {
             viewProductDetails() {
                 this.$router.push({ name: 'product', params: { id: this.product.id } })
-            }
-        }
+            },
+            addToCart() {
+                console.log('button pressed, item added');
+                if (this.product) {
+                    const cartItem = {
+                        product: this.product,
+                        quantity: this.quantity,
+                    };
+                    //Add item
+                    console.log('added item')
+                    this.shoppingCartProducts.addToCart(cartItem);
+                    //Update stock
+                    console.log('updated stock')
+                    this.products.updateStockQuantity(this.product.id, -this.quantity);
+                    //Show popup
+                    this.showPopup = true;
+                    //Hide the pop-up after a delay
+                    setTimeout(() => {
+                        this.showPopup = false;
+                    }, 3000);
+                } else {
+                    console.error('Product not found.');
+                }
+            },
+        },
+        computed: {
+            assetUrl() {
+                return this.products.assetUrl;
+            },
+        },
     };
 </script>
 <template>
     <div class="card">
         <div class="img__card">
-            <img :src="'src/assets/' + product.image" :alt="product.title">
+            <img :src="assetUrl + product.image" :alt="product.title">
             <div class="overlay">
-                <button class="add__to__cart">Add to Cart</button>
+                <button class="add__to__cart" @click="addToCart">Add to Cart</button>
                 <button class="view__details" @click="viewProductDetails">View Details</button>
             </div>
         </div>
@@ -25,6 +64,7 @@
             <p>{{ product.short_description }}</p>
         </div>
     </div>
+
 </template>
 <style lang="scss" scoped>
     @import '../scss/base.scss';

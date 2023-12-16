@@ -5,6 +5,7 @@ export const useProductStore = defineStore('products', {
     //State
     state: () => ({
       productList: productsJSON,
+      assetUrl: "http://localhost:5173/src/assets/",
     }),
     //Getters
     getters: {

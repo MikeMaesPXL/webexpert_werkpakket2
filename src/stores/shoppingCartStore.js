@@ -5,7 +5,8 @@ export const useShoppingCartStore = defineStore('shoppingCart', {
     //State
     state: () => ({
       cartItems: [],
-      productStore: useProductStore()
+      productStore: useProductStore(),
+      showPopUp: false
     }),
 
     //Getters
@@ -15,9 +16,6 @@ export const useShoppingCartStore = defineStore('shoppingCart', {
 
     //Actions
     actions: {
-      //1
-      //2
-      //3
         addToCart: function (cartItem) {
             this.productStore.updateStockQuantity(cartItem.product.id, -cartItem.quantity);
             const existingItem = this.cartItems.find(item => item.product.id === cartItem.product.id);
@@ -28,8 +26,11 @@ export const useShoppingCartStore = defineStore('shoppingCart', {
                 this.cartItems.push(cartItem);
             }
         },
+        
         removeFromCart(index) {
             if (index >= 0 && index < this.cartItems.length) {
+              const item = this.cartItems[index];
+              this.productStore.updateStockQuantity(item.product.id, item.quantity);
               this.cartItems.splice(index, 1);
             }
         },

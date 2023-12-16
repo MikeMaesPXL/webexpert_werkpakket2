@@ -5,12 +5,13 @@ import { useShoppingCartStore } from '@/stores/shoppingCartStore.js'
 import Header from '@/components/HeaderComponent.vue'
 import Footer from '@/components/FooterComponent.vue'
 
+const decimal = 2
+
 export default {
     data() {
         return {
             products: useProductStore(),
-            shoppingCartProducts: useShoppingCartStore(),
-            assetUrl: "http://localhost:5173/src/assets/" // Steek dit uiteindelijk in een store
+            shoppingCartProducts: useShoppingCartStore()
         };
     },
     components: {
@@ -19,37 +20,42 @@ export default {
     },
     methods: {
         incrementQuantity(index) {
-            const product = this.shoppingCartProducts.cartItems[index];
-            if (product) {
-                this.shoppingCartProducts.addToCart({ product: product.product, quantity: 1 });
-            }
+          const product = this.shoppingCartProducts.cartItems[index];
+          if (product) {
+              this.shoppingCartProducts.addToCart({ product: product.product, quantity: 1 });
+          }
         },
         decrementQuantity(index) {
-            const product = this.shoppingCartProducts.cartItems[index];
-            if (product && product.quantity > 1) {
-                this.shoppingCartProducts.addToCart({ product: product.product, quantity: -1 });
-            }
+          const product = this.shoppingCartProducts.cartItems[index];
+          if (product && product.quantity > 1) {
+              this.shoppingCartProducts.addToCart({ product: product.product, quantity: -1 });
+          }
         },
         removeProduct(index) {
-            this.shoppingCartProducts.removeFromCart(index);
+          this.shoppingCartProducts.removeFromCart(index);
         },
         calculateTotalWithVAT() {
-            return this.shoppingCartProducts.cartItems.reduce(
-                (total, product) => total + product.quantity * this.calculatePriceWithVAT(product.product),
-                0).toFixed(2);
+        return this.shoppingCartProducts.cartItems.reduce(
+            (total, product) => total + product.quantity * this.calculatePriceWithVAT(product.product),
+            0).toFixed(decimal);
         },
         calculateTotalWithoutVAT() {
-            return this.shoppingCartProducts.cartItems.reduce(
-                (total, product) => total + product.quantity * this.calculatePriceWithoutVAT(product.product),
-                0).toFixed(2);
+        return this.shoppingCartProducts.cartItems.reduce(
+            (total, product) => total + product.quantity * this.calculatePriceWithoutVAT(product.product),
+            0).toFixed(decimal);
         },
         calculatePriceWithVAT(product) {
-            return (product.price * (1 + product.vat_rate / 100)).toFixed(2);
+          return (product.price * (1 + product.vat_rate / 100)).toFixed(decimal);
         },
         calculatePriceWithoutVAT(product) {
-            return product.price.toFixed(2);
+          return product.price.toFixed(decimal);
         },
     },
+    computed: {
+      assetUrl() {
+        return this.products.assetUrl;
+      },
+    }
 }
 </script>
 <template>
@@ -61,7 +67,7 @@ export default {
         <div v-else>
             <div v-for="(product, index) in shoppingCartProducts.cartItems" :key="index" class="cart__item">
                 <div class="item__details">
-                    <img :src=" assetUrl + product.product.image" :alt="product.alt" class="item__image" />
+                    <img :src="assetUrl + product.product.image" :alt="product.alt" class="item__image" />
                     <div class="item__info">
                         <h3>{{ product.product.title }}</h3>
                         <p class="item__description">{{ product.product.short_description }}</p>
@@ -128,8 +134,8 @@ export default {
         flex: 1;
 
         .item__image {
-          width: 25%;
-          height: 400px;
+          max-width: 300px;
+          min-height: 300px; //??? This pains me on responsiveness
           margin-right: 10px;
 
           img {
