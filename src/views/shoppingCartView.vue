@@ -2,9 +2,6 @@
 import { useProductStore } from '@/stores/productStore.js'
 import { useShoppingCartStore } from '@/stores/shoppingCartStore.js'
 
-import Header from '@/components/HeaderComponent.vue'
-import Footer from '@/components/FooterComponent.vue'
-
 const decimal = 2
 
 export default {
@@ -14,11 +11,10 @@ export default {
             shoppingCartProducts: useShoppingCartStore()
         };
     },
-    components: {
-        Header,
-        Footer
-    },
     methods: {
+        checkout() {
+          this.$router.push('/checkout');
+        },
         incrementQuantity(index) {
           const product = this.shoppingCartProducts.cartItems[index];
           if (product) {
@@ -88,7 +84,7 @@ export default {
                 </div>
             </div>
 
-            <button class="checkout__button" @click="handleCheckout">Checkout</button>
+            <button class="checkout__button" @click="checkout">Checkout</button>
         </div>
     </div>
   </body>  

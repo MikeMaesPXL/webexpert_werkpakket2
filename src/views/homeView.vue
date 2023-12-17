@@ -3,8 +3,6 @@ import { useProductStore } from '@/stores/productStore.js'
 
 // Components
 import PopularProducts from '@/components/PopularProductsComponent.vue'
-import Header from '@/components/HeaderComponent.vue'
-import Footer from '@/components/FooterComponent.vue'
 import ProductCard from '@/components/ProductCardComponent.vue'
 
 export default {
@@ -15,15 +13,12 @@ export default {
     },
     components: {
         PopularProducts,
-        Header,
-        Footer,
         ProductCard
     }
 }
 </script>
 <template>
     <body>
-        
         <section class="main__home">
             <div class="main__text">
                 <h1>G2 Esports <br> Worlds Jersey 2023</h1>

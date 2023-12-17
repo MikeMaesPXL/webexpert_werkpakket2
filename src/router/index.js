@@ -7,6 +7,8 @@ import shoppingCartView from '../views/shoppingCartView.vue'
 import teamsView from '../views/teamsView.vue'
 import newsView from '../views/newsView.vue'
 import productView from '../views/productView.vue'
+import checkoutView from '../views/checkoutView.vue'
+import confirmationView from '../views/confirmationView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,6 +20,8 @@ const router = createRouter({
     { path: '/shoppingCart', component: shoppingCartView },
     { path: '/teams', component: teamsView },
     { path: '/news', component: newsView },
+    { path: '/checkout', component: checkoutView },
+    { path: '/confirmation', component: confirmationView },
     { path: '/product/:id', name: 'product', component: productView, props: true },
     { path: '/:catchAll(.*)', redirect: '/' },
   ]

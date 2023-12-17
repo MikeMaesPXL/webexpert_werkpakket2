@@ -1,8 +1,5 @@
 <script>
 import { useProductStore } from '@/stores/productStore.js'
-
-import Header from '@/components/HeaderComponent.vue'
-import Footer from '@/components/FooterComponent.vue'
 import ProductCard from '@/components/ProductCardComponent.vue'
 
 export default {
@@ -17,8 +14,6 @@ export default {
         }
     },
     components: {
-        Header,
-        Footer,
         ProductCard
     },
     computed: {

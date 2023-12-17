@@ -1,26 +1,27 @@
 <script>
 import { useProductStore } from '@/stores/productStore.js'
 
-import Header from '@/components/HeaderComponent.vue'
-import Footer from '@/components/FooterComponent.vue'
-
 export default {
     data() {
         return {
             products: useProductStore,
         }
     },
-    components: {
-        Header,
-        Footer
-    }
 }
 </script>
 <template>
-    <h1>ABOUT</h1>
+<body>
+    <h1>COMING SOON!</h1>
+</body>
 </template>
 <style lang="scss" scoped>
+    body {
+        height: 65.2vh;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
     h1 {
-        margin-top: 200px;
+        margin-top: 250px;
     }
 </style>

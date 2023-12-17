@@ -3,9 +3,6 @@ import { useProductStore } from '@/stores/productStore.js'
 import { useAuthStore } from '@/stores/authStore.js';
 import { useShoppingCartStore } from '@/stores/shoppingCartStore.js'
 
-import Header from '@/components/HeaderComponent.vue'
-import Footer from '@/components/FooterComponent.vue'
-
 export default {
     data() {
         return {
@@ -16,17 +13,13 @@ export default {
             password: '',
         }
     },
-    components: {
-        Header,
-        Footer
-    },
     methods: {
         async submitLogin() {
             try {
                 await this.authChecker.login(this.email, this.password);
                 this.$router.go(-1);
             } catch (error) {
-                console.error('Login failed:', error);
+                alert('Login failed:', error);
             }
         },
         async submitLogout() {
@@ -36,7 +29,7 @@ export default {
                 console.log('cart cleared');
                 this.$router.go(-1);
             } catch (error) {
-                console.error('Logout failed:', error);
+                alert('Logout failed:', error);
             }
         }
     },
@@ -114,6 +107,10 @@ export default {
             color: $color-light;
             padding: 10px 20px 10px 20px;
             font-weight: 700;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
 
