@@ -14,7 +14,7 @@ export default {
 <template>
     <body>
        <h1>BABABOEEEEEY</h1>
-       <button class="confirmation__button" @click="checkout">Confirm</button>
+       <button class="confirmation__button" @click="checkout">Checkout</button>
     </body>
 </template>
 <style lang="scss" scoped>

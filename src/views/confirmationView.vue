@@ -3,8 +3,8 @@
 </script>
 <template>
     <body>
-       <h1>BABABOEEEEEY</h1>
-       <button class="backToHome__button" @click="checkout">Back to home!</button>
+       <h1>THANK YOU FOR YOUR PURCHASE!</h1>
+       <button class="backToHome__button" @click="checkout">Confirm</button>
     </body>
 </template>
 <style lang="scss" scoped>
