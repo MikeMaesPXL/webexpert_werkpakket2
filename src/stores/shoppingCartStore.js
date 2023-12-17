@@ -34,6 +34,10 @@ export const useShoppingCartStore = defineStore('shoppingCart', {
               this.cartItems.splice(index, 1);
             }
         },
+        
+        clearCart() {
+          this.cartItems = [];
+        },
 
         // updateCartItems(newCartItems) {
         //   this.cartItems = newCartItems;

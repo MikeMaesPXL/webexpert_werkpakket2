@@ -15,7 +15,7 @@
             <router-link to="/login"><i class='bx bx-user'></i></router-link>
             <router-link to="/shoppingCart"><i class='bx bx-cart'></i></router-link>
 
-            <div class="bx bx-menu" id="burger-menu"></div>
+            <!-- <div class="bx bx-menu" id="burger-menu"></div> -->
         </div>
     </header>
 </template>

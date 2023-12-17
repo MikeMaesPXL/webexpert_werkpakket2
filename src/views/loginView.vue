@@ -1,6 +1,7 @@
 <script>
 import { useProductStore } from '@/stores/productStore.js'
 import { useAuthStore } from '@/stores/authStore.js';
+import { useShoppingCartStore } from '@/stores/shoppingCartStore.js'
 
 import Header from '@/components/HeaderComponent.vue'
 import Footer from '@/components/FooterComponent.vue'
@@ -10,6 +11,7 @@ export default {
         return {
             products: useProductStore(),
             authChecker: useAuthStore(),
+            shoppingCartProducts: useShoppingCartStore(),
             email: '',
             password: '',
         }
@@ -21,10 +23,20 @@ export default {
     methods: {
         async submitLogin() {
             try {
-                await this.authChecker.login(this.email, this.password)
+                await this.authChecker.login(this.email, this.password);
                 this.$router.go(-1);
             } catch (error) {
                 console.error('Login failed:', error);
+            }
+        },
+        async submitLogout() {
+            try {
+                await this.authChecker.logout();
+                this.shoppingCartProducts.clearCart();
+                console.log('cart cleared');
+                this.$router.go(-1);
+            } catch (error) {
+                console.error('Logout failed:', error);
             }
         }
     },
@@ -62,8 +74,8 @@ export default {
                     </div>
                     
                 </div>
-                <div v-else>
-                    <button>Logout</button>
+                <div v-else class="logout">
+                    <button v-if="authChecker.isLoggedIn" @click="submitLogout">Logout</button>
                 </div>
 
 
@@ -90,6 +102,20 @@ export default {
 </template>
 <style lang="scss" scoped>
     @import '../scss/base.scss';
+
+    .logout {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+
+        button {
+            background-color: $color-primary;
+            color: $color-light;
+            padding: 10px 20px 10px 20px;
+            font-weight: 700;
+        }
+    }
 
     .login__container {
         @include basicSectionStyling();

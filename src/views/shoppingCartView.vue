@@ -86,16 +86,31 @@ export default {
                     <p>Total without VAT: <span>€{{ calculateTotalWithoutVAT() }}</span></p>
                     <p>Total with VAT: <span>€{{ calculateTotalWithVAT() }}</span></p>
                 </div>
-                <!-- <div class="price-without-vat">
-                    <p>Total without VAT: ${{ calculateTotalWithoutVAT() }}</p>
-                </div> -->
             </div>
+
+            <button class="checkout__button" @click="handleCheckout">Checkout</button>
         </div>
     </div>
   </body>  
 </template>
 <style lang="scss" scoped>
   @import '../scss/base.scss';
+
+  .checkout__button {
+    margin-top: 20px;
+    align-self: flex-end;
+    font-size: 16px;
+    background-color: $color-primary;
+    color: $color-light;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($color-primary, 10%);
+    }
+  }
 
   .card__empty__text {
     text-align: center;
