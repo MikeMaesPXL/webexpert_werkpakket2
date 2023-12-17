@@ -34,5 +34,9 @@ export const useShoppingCartStore = defineStore('shoppingCart', {
               this.cartItems.splice(index, 1);
             }
         },
+
+        // updateCartItems(newCartItems) {
+        //   this.cartItems = newCartItems;
+        // }
     },
 });

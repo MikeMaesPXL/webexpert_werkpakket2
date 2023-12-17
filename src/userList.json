@@ -1,0 +1,22 @@
+[
+    {
+       "email": "dario@gmail.com", 
+       "password": "dario",
+       "shoppingCartState": []
+    },
+    {
+       "email": "nathan@gmail.com", 
+       "password": "nathan",
+       "shoppingCartState": []
+    },
+    {
+       "email": "robin@gmail.com",
+       "password": "robin",
+       "shoppingCartState": []
+    },
+    {
+       "email": "bert@gmail.com", 
+       "password": "bert",
+       "shoppingCartState": []
+    }
+]

@@ -27,15 +27,15 @@ export default {
                 console.error('Login failed:', error);
             }
         }
-    }
+    },
 }
 </script>
 <template>
     <body>
         <section class="login__container forms">
             <div class="form login">
-                <div class="form__content">
-                    <h2>Login</h2>
+                <div v-if="!authChecker.isLoggedIn" class="form__content">
+                    <h2>{{ authChecker.isLoggedIn ? 'Logout' : 'Login'}}</h2>
 
                     <form @submit.prevent="submitLogin">
                         <div class="field input__field">
@@ -54,22 +54,30 @@ export default {
                         <div class="field input__field">
                             <button>Login</button>
                         </div>
+
                     </form>
+
                     <div class="form__link">
                         <span>New to G2 Esports? <a href="#" class="signup__link">Sign up</a></span>
                     </div>
+                    
+                </div>
+                <div v-else>
+                    <button>Logout</button>
                 </div>
 
-                <div class="line"></div>
 
-                <div class="media__options">
+                <div class="line" v-if="!authChecker.isLoggedIn"></div>
+
+
+                <div class="media__options" v-if="!authChecker.isLoggedIn">
                     <a href="#" class="field facebook">
                         <i class='bx bxl-facebook facebook__icon' ></i>
                         <span>Login with Facebook</span>
                     </a>
                 </div>
 
-                <div class="media__options">
+                <div class="media__options" v-if="!authChecker.isLoggedIn">
                     <a href="#" class="field google">
                         <img src="@/assets/google.png" alt="" class="google__img">
                         <span>Login with Google</span>
