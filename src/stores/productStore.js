@@ -19,7 +19,7 @@ export const useProductStore = defineStore('products', {
     },
     //Actions
     actions: {
-      updateStockQuantity: function (productId, quantity) {
+      updateStockQuantity(productId, quantity) {
         const product = this.getProductById(productId);
   
         if (product) {

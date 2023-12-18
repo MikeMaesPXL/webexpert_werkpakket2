@@ -16,7 +16,7 @@ export const useShoppingCartStore = defineStore('shoppingCart', {
 
     //Actions
     actions: {
-        addToCart: function (cartItem) {
+        addToCart(cartItem) {
             this.productStore.updateStockQuantity(cartItem.product.id, -cartItem.quantity);
             const existingItem = this.cartItems.find(item => item.product.id === cartItem.product.id);
 

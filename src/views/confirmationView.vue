@@ -1,16 +1,16 @@
 <script>
-import JSConfetti from 'js-confetti'
+// import JSConfetti from 'js-confetti';
 
 export default {
     data() {
         return {
-            jsConfetti: new JSConfetti(),
+            // jsConfetti: new JSConfetti(),
         }
     },
     computed: {
-        addConfetti() {
-            this.jsConfetti.addConfetti();
-        },
+        // addConfetti() {
+        //     this.jsConfetti.addConfetti();
+        // },
         home() {
           this.$router.push('/');
         },
@@ -22,7 +22,7 @@ export default {
     <body>
         <div class="wrapper">
             <h1>THANK YOU FOR YOUR PURCHASE!</h1>
-            <p>{{ addConfetti }}</p>
+            <!-- <p>{{ addConfetti }}</p> -->
             <button class="backToHome__button" @click="home">Confirm</button>
         </div>
     </body>
