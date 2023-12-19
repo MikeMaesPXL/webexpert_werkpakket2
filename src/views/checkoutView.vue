@@ -1,20 +1,30 @@
 <script>
-export default {
-    data() {
-        return {
-        };
-    },
-    methods: {
-        checkout() {
-          this.$router.push('/confirmation');
+import { useShoppingCartStore } from '@/stores/shoppingCartStore.js'
+    export default {
+        data() {
+            return {
+                shoppingCartProducts: useShoppingCartStore(),
+            };
         },
-    }
-}
+        methods: {
+            confirmation() {
+                this.$router.push('/confirmation');
+            },
+        },
+        computed: {
+            cartItems() {
+                return this.shoppingCartProducts.getters.getCartItems;
+            }
+        }
+    };
 </script>
 <template>
     <body>
-       <h1>BABABOEEEEEY</h1>
-       <button class="confirmation__button" @click="checkout">Checkout</button>
+        <h1>Checkout: </h1>
+        <div v-for="(product, index) in cartItems" :key="index">
+            <p>{{ product.product.title }} - Quantity: {{ product.quantity }}</p>
+        </div>
+        <button class="confirmation__button" @click="confirmation">Checkout</button>
     </body>
 </template>
 <style lang="scss" scoped>

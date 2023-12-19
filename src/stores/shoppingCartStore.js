@@ -11,7 +11,8 @@ export const useShoppingCartStore = defineStore('shoppingCart', {
 
     //Getters
     getters: {
-      getCartItems: () => this.cartItems,
+      // getCartItems: () => this.cartItems,
+      getCartItems: state => state.cartItems,
     },
 
     //Actions

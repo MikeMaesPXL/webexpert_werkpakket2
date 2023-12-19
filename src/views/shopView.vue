@@ -1,7 +1,6 @@
 <script>
 import { useProductStore } from '@/stores/productStore.js'
 import ProductCard from '@/components/ProductCardComponent.vue'
-import productViewVue from './productView.vue'
 
 export default {
     data() {
@@ -65,7 +64,6 @@ export default {
             }
         }
     },
-    
 }
 </script>
 <template>
