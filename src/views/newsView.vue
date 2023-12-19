@@ -16,7 +16,7 @@ export default {
 </template>
 <style lang="scss" scoped>
     body {
-        height: 65.2vh;
+        height: 80vh;
         display: flex;
         justify-content: center;
         align-content: center;

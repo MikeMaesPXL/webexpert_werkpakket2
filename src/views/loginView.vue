@@ -17,7 +17,8 @@ export default {
         async submitLogin() {
             try {
                 await this.authChecker.login(this.email, this.password);
-                this.$router.go(-1);
+                // this.$router.go(-1);
+                this.$router.push('/shoppingCart')
             } catch (error) {
                 alert('Login failed:', error);
             }

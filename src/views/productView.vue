@@ -48,7 +48,7 @@
                         console.error('Product not found.');
                     }
                 } else {
-                    this.$router.push('/login')
+                    this.$router.push('/login');
                 }
             },
         },

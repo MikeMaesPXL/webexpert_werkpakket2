@@ -31,6 +31,7 @@ export default {
     @import '../scss/base.scss';
 
     body {
+        min-height: 80vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -40,9 +41,9 @@ export default {
             flex-direction: column;
             align-items: center;
 
-            h1 {
-                margin-top: 250px;
-            }
+            // h1 {
+            //     margin-top: 250px;
+            // }
 
             .backToHome__button {
                 margin-top: 20px;

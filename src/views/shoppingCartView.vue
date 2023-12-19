@@ -123,8 +123,6 @@ export default {
     margin-top: 150px;
     padding: 20px;
     background-color: white;
-    // display: flex;
-    // justify-content: center;
     width: 80%;
 
     p {
@@ -146,7 +144,7 @@ export default {
 
         .item__image {
           max-width: 300px;
-          min-height: 300px; //??? This pains me on responsiveness
+          min-height: 300px; 
           margin-right: 10px;
 
           img {
