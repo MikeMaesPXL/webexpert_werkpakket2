@@ -47,7 +47,6 @@ export default {
 
             .backToHome__button {
                 margin-top: 20px;
-                align-self: flex-end;
                 font-size: 16px;
                 background-color: $color-primary;
                 color: $color-light;
