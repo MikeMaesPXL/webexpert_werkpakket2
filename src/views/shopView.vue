@@ -1,6 +1,7 @@
 <script>
 import { useProductStore } from '@/stores/productStore.js'
 import ProductCard from '@/components/ProductCardComponent.vue'
+import productViewVue from './productView.vue'
 
 export default {
     data() {
@@ -8,6 +9,7 @@ export default {
             products: useProductStore(),
             tags: [],
             selectedFilters: [],
+            searchQuery: '',
             filterOptions: ["All", "Jersey", "Jackets", "Pants", "Sleeves", "Headwear", "Accessories"],
             pageSize: 8,
             page: 1,
@@ -18,7 +20,20 @@ export default {
     },
     computed: {
         filteredProducts() {
-            if (this.selectedFilters.length === 0) {
+            if (this.searchQuery && this.selectedFilters.length > 0) {
+                const filteredTag = this.products.productList.filter(product =>
+                    this.selectedFilters.some(filter => product.tags.includes(filter))
+                );
+
+                return filteredTag.filter(product =>
+                    product.title.toLowerCase().includes(this.searchQuery.toLowerCase())
+                );
+            }
+            else if (this.searchQuery) {
+                return this.products.productList.filter(product =>
+                    product.title.toLowerCase().includes(this.searchQuery.toLowerCase())
+                );
+            } else if (this.selectedFilters.length === 0) {
                 return this.products.productList
             } else {
                 return this.products.productList.filter(product => 
@@ -65,6 +80,9 @@ export default {
                     {{ filterOption }}
                 </span>
             </div>
+            <div class="search__bar">
+                <input v-model="searchQuery" type="text" placeholder="Search products...">
+            </div>
             <div class="products__wrapper">
                 <div v-for="(product, id) in paginatedProducts" :key="id">
                     <ProductCard :product="product" />
@@ -105,7 +123,7 @@ export default {
 
         .filter {
             @include textColorAndSize($color-black, 20px);
-            margin: 30px 0 0px 0;
+            margin: 30px 0 0 0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -116,6 +134,30 @@ export default {
                     text-decoration: underline;
                     transition: 1s all ease;
                     cursor: pointer;
+                }
+            }
+        }
+
+        .search__bar {
+            margin: 30px 0 0 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            input {
+                // width: 100%;
+                height: 36px;
+                border-radius: 4px;
+                padding-left: 12px;
+                font-size: 14px;
+                font-weight: normal;
+                border: 1px solid rgb(137, 151, 155);
+                transition: border-color 150ms ease-in-out 0s;
+                outline: none;
+                color: rgb(33, 49, 60);
+                background-color: $color-light;
+                padding-right: 12px;
+                &:hover{
+                    box-shadow: rgb(255, 225, 225) 0px 0px 0px 3px;
                 }
             }
         }

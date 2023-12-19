@@ -11,7 +11,7 @@
         </ul>
 
         <div class="nav__icon">
-            <a href="#"><i class='bx bx-search'></i></a>
+            <!-- <a href="#"><i class='bx bx-search'></i></a> -->
             <router-link to="/login"><i class='bx bx-user'></i></router-link>
             <router-link to="/shoppingCart"><i class='bx bx-cart'></i></router-link>
 
