@@ -11,17 +11,13 @@
         </ul>
 
         <div class="nav__icon">
-            <!-- <a href="#"><i class='bx bx-search'></i></a> -->
             <router-link to="/login"><i class='bx bx-user'></i></router-link>
             <router-link to="/shoppingCart"><i class='bx bx-cart'></i></router-link>
-
-            <!-- <div class="bx bx-menu" id="burger-menu"></div> -->
         </div>
     </header>
 </template>
 <style lang="scss" scoped>
     @import '../scss/base.scss';
-    // @import '../scss/components.scss';
 
     header {
         background-color: $color-light;

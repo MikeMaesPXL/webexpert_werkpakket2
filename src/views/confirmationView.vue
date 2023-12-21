@@ -87,48 +87,42 @@ export default {
             align-items: flex-start;
 
             .cart__item {
-                // display: flex;
-                // flex-wrap: wrap;
-                // justify-content: space-between;
-                // align-items: center;
-                // border-bottom: 1px solid red;
-                // padding: 10px;
 
-            .item__details {
-                display: flex;
-                align-items: center;
-                flex: 1;
+                .item__details {
+                    display: flex;
+                    align-items: center;
+                    flex: 1;
 
-                .item__image {
-                    max-width: 300px;
-                    min-height: 300px; 
-                    margin-right: 10px;
+                    .item__image {
+                        max-width: 300px;
+                        min-height: 300px; 
+                        margin-right: 10px;
+                    }
+                    .quantity {
+                        color: $color-primary;
+                        font-size: 22px;
+                        font-weight: 700;
+                        margin-right: 10px;
+                    }
+
+                .item__info {
+                    .item__info__wrap {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    }
+
+                    h3 {
+                        margin: 0;
+                        font-size: 26px;
+                    }
+                    .item__description {
+                        margin: 0;
+                        font-size: 18px;
+                        color: $color-secondary;
+                    }
                 }
-                .quantity {
-                    color: $color-primary;
-                    font-size: 22px;
-                    font-weight: 700;
-                    margin-right: 10px;
-                }
-
-        .item__info {
-            .item__info__wrap {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
             }
-
-            h3 {
-                margin: 0;
-                font-size: 26px;
-            }
-            .item__description {
-                margin: 0;
-                font-size: 18px;
-                color: $color-secondary;
-            }
-        }
-        }
     }
 }
     .products__title {

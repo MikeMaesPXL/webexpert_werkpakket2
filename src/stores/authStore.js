@@ -15,7 +15,6 @@ export const useAuthStore = defineStore('auth', {
       if (user) {
         this.currentUser = user;
         this.isLoggedIn = true;
-        // this.shoppingCartStore.updateCartItems(user.cartItems);
       } else {
         throw new Error('Invalid email or password');
       }

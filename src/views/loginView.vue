@@ -21,7 +21,6 @@ export default {
         async submitLogin() {
             try {
                 await this.authChecker.login(this.email, this.password);
-                // this.$router.go(-1);
                 this.$router.push('/shoppingCart')
             } catch (error) {
                 alert('Login failed:', error);
@@ -32,7 +31,6 @@ export default {
                 await this.authChecker.logout();
                 this.shoppingCartProducts.clearCart();
                 console.log('cart cleared');
-                // this.$router.go(-1);
                 this.$router.push('/');
             } catch (error) {
                 alert('Logout failed:', error);

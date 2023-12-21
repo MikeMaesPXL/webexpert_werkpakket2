@@ -70,7 +70,6 @@ export default {
             }
         },
         updateSearchQuery() {
-            // this.searchQuery = newSearchQuery;
             this.searchQuery = event.target.value;
             this.page = 1;
         }
