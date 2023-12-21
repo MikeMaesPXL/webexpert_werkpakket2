@@ -19,34 +19,51 @@ export default {
     },
     computed: {
         filteredProducts() {
-            if (this.searchQuery && this.selectedFilters.length > 0) {
-                const filteredTag = this.products.productList.filter(product =>
+            // if (this.searchQuery && this.selectedFilters.length > 0) {
+            //     const filteredTag = this.products.productList.filter(product =>
+            //         this.selectedFilters.some(filter => product.tags.includes(filter))
+            //     );
+
+            //     return filteredTag.filter(product =>
+            //         product.title.toLowerCase().includes(this.searchQuery.toLowerCase())
+            //     );
+            // }
+            // else if (this.searchQuery) {
+            //     return this.products.productList.filter(product =>
+            //         product.title.toLowerCase().includes(this.searchQuery.toLowerCase())
+            //     );
+            // } else if (this.selectedFilters.length === 0) {
+            //     return this.products.productList
+            // } else {
+            //     return this.products.productList.filter(product => 
+            //     this.selectedFilters.some(filter => product.tags.includes(filter)))
+            // }
+            const filteredList = this.products.productList;
+
+            if (this.searchQuery) {
+                return filteredList.filter(product =>
+                    product.title.toLowerCase().includes(this.searchQuery.toLowerCase())
+                );
+            }
+            if (this.selectedFilters.length > 0) {
+                return filteredList.filter(product =>
                     this.selectedFilters.some(filter => product.tags.includes(filter))
                 );
-
-                return filteredTag.filter(product =>
-                    product.title.toLowerCase().includes(this.searchQuery.toLowerCase())
-                );
             }
-            else if (this.searchQuery) {
-                return this.products.productList.filter(product =>
-                    product.title.toLowerCase().includes(this.searchQuery.toLowerCase())
-                );
-            } else if (this.selectedFilters.length === 0) {
-                return this.products.productList
-            } else {
-                return this.products.productList.filter(product => 
-                this.selectedFilters.some(filter => product.tags.includes(filter)))
-            }
+            return filteredList;
         },
         totalPages() {
             return Math.ceil(this.filteredProducts.length / this.pageSize)
         },
         paginatedProducts() {
-            const startIndex = (this.page - 1) * this.pageSize
-            const endIndex = startIndex + this.pageSize
-            return this.filteredProducts.slice(startIndex, endIndex)
+            const startIndex = (this.page - 1) * this.pageSize;
+            return this.filteredProducts.slice(startIndex, startIndex + this.pageSize);
         }
+        // paginatedProducts() {
+        //     const startIndex = (this.page - 1) * this.pageSize
+        //     const endIndex = startIndex + this.pageSize
+        //     return this.filteredProducts.slice(startIndex, endIndex)
+        // }
     },
     methods: {
         toggleFilter(filter) {
@@ -57,11 +74,17 @@ export default {
             } else {
                 this.selectedFilters.splice(index, 1)
             }
+
+            this.page = 1;
         },
         goToPage(newPage) {
             if (newPage >= 1 && newPage <= this.totalPages) {
                 this.page = newPage
             }
+        },
+        updateSearchQuery(newSearchQuery) {
+            this.searchQuery = newSearchQuery;
+            this.page = 1;
         }
     },
 }
@@ -79,7 +102,7 @@ export default {
                 </span>
             </div>
             <div class="search__bar">
-                <input v-model="searchQuery" type="text" placeholder="Search products...">
+                <input v-model="searchQuery" @input="updateSearchQuery" type="text" placeholder="Search products...">
             </div>
             <div class="products__wrapper">
                 <div v-for="(product, id) in paginatedProducts" :key="id">

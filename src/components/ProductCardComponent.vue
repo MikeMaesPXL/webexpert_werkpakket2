@@ -6,10 +6,14 @@
 
     export default {
         data() {
+            const products = useProductStore();
+            const shoppingCartProducts = useShoppingCartStore();
+            const authChecker = useAuthStore();
+
             return {
-                products: useProductStore(),
-                shoppingCartProducts: useShoppingCartStore(),
-                authChecker: useAuthStore(),
+                products,
+                shoppingCartProducts,
+                authChecker,
                 showPopup: false,
                 quantity: 1
             };
@@ -68,7 +72,6 @@
             <p>{{ product.short_description }}</p>
         </div>
     </div>
-
 </template>
 <style lang="scss" scoped>
     @import '../scss/base.scss';
