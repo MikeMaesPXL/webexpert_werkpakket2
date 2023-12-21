@@ -4,8 +4,10 @@ import ProductCard from '@/components/ProductCardComponent.vue'
 
 export default {
     data() {
+        const products = useProductStore();
+
         return {
-            products: useProductStore(),
+            products,
             tags: [],
             selectedFilters: [],
             searchQuery: '',

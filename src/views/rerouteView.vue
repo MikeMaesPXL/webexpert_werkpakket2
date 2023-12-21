@@ -3,16 +3,17 @@ import { useProductStore } from '@/stores/productStore.js'
 
 export default {
     data() {
+        const products = useProductStore();
         return {
-            products: useProductStore()
+            products,
         }
     },
 }
 </script>
 <template>
-    <body>
-        <h1>COMING SOON!</h1>
-    </body>
+<body>
+    <h1>COMING SOON!</h1>
+</body>
 </template>
 <style lang="scss" scoped>
     body {

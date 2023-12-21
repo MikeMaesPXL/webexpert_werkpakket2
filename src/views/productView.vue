@@ -6,12 +6,16 @@
 
     export default {
         data() {
+            const products = useProductStore();
+            const shoppingCartProducts = useShoppingCartStore();
+            const authChecker = useAuthStore();
+
             return {
                 quantity: 1,
                 showPopup: false,
-                products: useProductStore(),
-                shoppingCartProducts: useShoppingCartStore(),
-                authChecker: useAuthStore(),
+                products,
+                shoppingCartProducts,
+                authChecker,
             };
         },
         computed: {

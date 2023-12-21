@@ -5,9 +5,9 @@
             <a href="#" class="logo"><img src="@/assets/g2_logo.png" alt="logo"></a>
             <li><router-link to="/">Home</router-link></li>
             <li><router-link to="/shop">G2 Shop</router-link></li>
-            <li><router-link to="/teams">Teams</router-link></li>
-            <li><router-link to="/news">News</router-link></li>
-            <li><router-link to="/about">About G2</router-link></li>
+            <li><router-link to="/:catchAll(.*)">Teams</router-link></li>
+            <li><router-link to="/:catchAll(.*)">News</router-link></li>
+            <li><router-link to="/:catchAll(.*)">About G2</router-link></li>
         </ul>
 
         <div class="nav__icon">

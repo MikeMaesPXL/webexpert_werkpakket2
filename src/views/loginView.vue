@@ -5,10 +5,14 @@ import { useShoppingCartStore } from '@/stores/shoppingCartStore.js'
 
 export default {
     data() {
+        const products = useProductStore();
+        const authChecker = useAuthStore();
+        const shoppingCartProducts = useShoppingCartStore();
+
         return {
-            products: useProductStore(),
-            authChecker: useAuthStore(),
-            shoppingCartProducts: useShoppingCartStore(),
+            products,
+            authChecker,
+            shoppingCartProducts,
             email: '',
             password: '',
         }
@@ -28,7 +32,8 @@ export default {
                 await this.authChecker.logout();
                 this.shoppingCartProducts.clearCart();
                 console.log('cart cleared');
-                this.$router.go(-1);
+                // this.$router.go(-1);
+                this.$router.push('/');
             } catch (error) {
                 alert('Logout failed:', error);
             }

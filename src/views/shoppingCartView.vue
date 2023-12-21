@@ -6,10 +6,13 @@ const decimal = 2
 
 export default {
     data() {
-        return {
-            products: useProductStore(),
-            shoppingCartProducts: useShoppingCartStore()
-        };
+      const products = useProductStore();
+      const shoppingCartProducts = useShoppingCartStore();
+
+      return {
+          products,
+          shoppingCartProducts,
+      };
     },
     methods: {
         checkout() {
@@ -231,23 +234,50 @@ export default {
     }
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 820px) {
     .cart__item {
       flex-direction: column;
       align-items: flex-start;
-
       .item__details {
         margin-bottom: 10px;
       }
-
       .quantity__controls {
         margin-top: 10px;
       }
     }
-
     .prices {
       flex-direction: column;
       margin-top: 10px;
+    }
+  }
+
+  @media only screen and (max-width: 414px) {
+    .shopping__cart {
+      margin-top: 0px;
+    }
+    .checkout__container {
+      margin-top: -50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .checkout__form {
+      margin-top: 50px;
+      width: 80%;
+    }
+    .shopping__info {
+      width: 80%;
+      margin-top: 0px;
+      order: 2;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .item__details {
+      display: flex;
+      flex-direction: column;
     }
   }
 </style>
