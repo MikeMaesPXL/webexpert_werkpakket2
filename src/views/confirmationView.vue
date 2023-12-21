@@ -1,7 +1,6 @@
 <script>
 import { useProductStore } from '@/stores/productStore.js'
 import { useShoppingCartStore } from '@/stores/shoppingCartStore.js'
-// import JSConfetti from 'js-confetti';
 
 export default {
     data() {
@@ -11,13 +10,9 @@ export default {
         return {
             shoppingCartProducts,
             products,
-            // jsConfetti: new JSConfetti(),
         }
     },
     computed: {
-        // addConfetti() {
-        //     this.jsConfetti.addConfetti();
-        // },
         home() {
           this.$router.push('/');
         },
@@ -33,7 +28,6 @@ export default {
         <div class="wrapper">
             <img class="confirm__pic" src="../assets/confirm.svg" alt="confirm">
             <h1>THANK YOU FOR YOUR PURCHASE!</h1>
-            <!-- <p>{{ addConfetti }}</p> -->
             <button class="backToHome__button" @click="home">Confirm</button>
         </div>
         <h1 class="products__title">Products: </h1>
@@ -167,6 +161,15 @@ export default {
     }
 
     @media only screen and (max-width: 414px) {
+      .wrapper {
+        h1 {
+            text-align: center;
+        }
+      }
+      .confirm__pic {
+        width: 80%;
+        height: 80%;
+      }
       .checkout__container {
         margin-top: 50px;
         display: flex;
