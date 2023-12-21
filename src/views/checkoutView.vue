@@ -1,15 +1,18 @@
 <script>
 import { useProductStore } from '@/stores/productStore.js'
 import { useShoppingCartStore } from '@/stores/shoppingCartStore.js'
+import { useAuthStore } from '@/stores/authStore.js'
 
     export default {
     data() {
         const shoppingCartProducts = useShoppingCartStore();
         const products = useProductStore();
+        const authStore = useAuthStore();
 
         return {
             shoppingCartProducts,
             products,
+            authStore,
             formData: {
                 name: '',
                 address: '',
@@ -21,14 +24,14 @@ import { useShoppingCartStore } from '@/stores/shoppingCartStore.js'
         };
     },
     computed: {
-      totalWithoutVAT() {
-          return useShoppingCartStore().totalWithoutVAT;
-      },
-      totalWithVAT() {
-          return useShoppingCartStore().totalWithVAT;
-      },
       assetUrl() {
         return this.products.assetUrl;
+      },
+      isLoggedIn() {
+        return useAuthStore().isLoggedIn;
+      },
+      user() {
+        return this.isLoggedIn ? useAuthStore().getUserDetails() : null;
       },
     },
     methods: {
@@ -47,7 +50,22 @@ import { useShoppingCartStore } from '@/stores/shoppingCartStore.js'
             this.formData.phone = '';
             this.formData.useFacturationAddress = false;
         },
-    }
+        fillFormDataIfLoggedIn(user) {
+          if (user) {
+            this.formData.name = user.name;
+            this.formData.address = user.address;
+            this.formData.facturatieAddress = user.facturatieAddress;
+            this.formData.country = user.country;
+            this.formData.phone = user.phone;
+          }
+        },
+      },
+      watch: {
+        user: 'fillFormDataIfLoggedIn',
+      },
+      created() {
+        this.fillFormDataIfLoggedIn(this.user);
+      },
     };
 </script>
 
@@ -73,12 +91,12 @@ import { useShoppingCartStore } from '@/stores/shoppingCartStore.js'
         <h2>Checkout</h2>
         <form @submit.prevent="confirmation">
           <div class="form__group">
-            <label for="name">Name:</label>
+            <label for="name">Name: *</label>
             <input type="text" id="name" v-model="formData.name" required>
           </div>
 
           <div class="form__group">
-            <label for="address">Billing Address:</label>
+            <label for="address">Billing Address: *</label>
             <input type="text" id="address" v-model="formData.address" required>
           </div>
 
@@ -93,7 +111,7 @@ import { useShoppingCartStore } from '@/stores/shoppingCartStore.js'
           </div>
 
           <div class="form__group">
-            <label for="country">Country:</label>
+            <label for="country">Country: *</label>
             <input type="text" id="country" v-model="formData.country" required>
           </div>
 

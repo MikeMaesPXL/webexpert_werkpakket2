@@ -1,29 +1,42 @@
 [
    {
-      "name": "mike",
+      "name": "Admin",
       "email": "1@1",
       "password": "1",
+      "address": "uknown__address",
+      "country": "unknown__country",
       "shoppingCartState": []
    },
    {
-      "name": "dario",
+      "name": "Dario Di Giacomo",
       "email": "dario@gmail.com", 
       "password": "dario",
+      "address": "Ergens in Genk",
+      "country": "België",
       "shoppingCartState": []
    },
    {
+      "name": "Nathan Schoeters",
       "email": "nathan@gmail.com", 
       "password": "nathan",
+      "address": "HAM!",
+      "country": "België",
       "shoppingCartState": []
    },
    {
+      "name": "Robin Braibant",
       "email": "robin@gmail.com",
       "password": "robin",
+      "address": "Weet ik niet :(",
+      "country": "België",
       "shoppingCartState": []
    },
    {
+      "name": "Bertrand Alain Etneo",
       "email": "bert@gmail.com", 
       "password": "bert",
+      "address": "Buh!",
+      "country": "België",
       "shoppingCartState": []
    }
 ]

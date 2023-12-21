@@ -34,15 +34,12 @@
             addToCart() {
                 if (this.authChecker.isLoggedIn) 
                 {
-                    console.log('button pressed, item added');
                     if (this.product) {
                         const cartItem = {
                             product: this.product,
                             quantity: this.quantity,
                         };
-                        console.log('added item')
                         this.shoppingCartProducts.addToCart(cartItem);
-                        console.log('updated stock')
                         this.products.updateStockQuantity(this.product.id, -this.quantity);
                         this.showPopup = true;
                         setTimeout(() => {
