@@ -21,37 +21,27 @@ export default {
     },
     computed: {
         filteredProducts() {
-            // if (this.searchQuery && this.selectedFilters.length > 0) {
-            //     const filteredTag = this.products.productList.filter(product =>
-            //         this.selectedFilters.some(filter => product.tags.includes(filter))
-            //     );
-
-            //     return filteredTag.filter(product =>
-            //         product.title.toLowerCase().includes(this.searchQuery.toLowerCase())
-            //     );
-            // }
-            // else if (this.searchQuery) {
-            //     return this.products.productList.filter(product =>
-            //         product.title.toLowerCase().includes(this.searchQuery.toLowerCase())
-            //     );
-            // } else if (this.selectedFilters.length === 0) {
-            //     return this.products.productList
-            // } else {
-            //     return this.products.productList.filter(product => 
-            //     this.selectedFilters.some(filter => product.tags.includes(filter)))
-            // }
             const filteredList = this.products.productList;
+
+            if (this.searchQuery && this.selectedFilters.length > 0) {
+                return filteredList.filter(product =>
+                    product.title.toLowerCase().includes(this.searchQuery.toLowerCase()) &&
+                    this.selectedFilters.some(filter => product.tags.includes(filter))
+                );
+            }
 
             if (this.searchQuery) {
                 return filteredList.filter(product =>
                     product.title.toLowerCase().includes(this.searchQuery.toLowerCase())
                 );
             }
+
             if (this.selectedFilters.length > 0) {
                 return filteredList.filter(product =>
                     this.selectedFilters.some(filter => product.tags.includes(filter))
                 );
             }
+
             return filteredList;
         },
         totalPages() {
@@ -61,11 +51,6 @@ export default {
             const startIndex = (this.page - 1) * this.pageSize;
             return this.filteredProducts.slice(startIndex, startIndex + this.pageSize);
         }
-        // paginatedProducts() {
-        //     const startIndex = (this.page - 1) * this.pageSize
-        //     const endIndex = startIndex + this.pageSize
-        //     return this.filteredProducts.slice(startIndex, endIndex)
-        // }
     },
     methods: {
         toggleFilter(filter) {
@@ -84,8 +69,9 @@ export default {
                 this.page = newPage
             }
         },
-        updateSearchQuery(newSearchQuery) {
-            this.searchQuery = newSearchQuery;
+        updateSearchQuery() {
+            // this.searchQuery = newSearchQuery;
+            this.searchQuery = event.target.value;
             this.page = 1;
         }
     },
